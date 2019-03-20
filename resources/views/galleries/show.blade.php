@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Gallery: {{ $gallery->name }}</h1>
-<p>Provided by {{ $gallery->author }}</p>
+<h1>Gallery: {{ $gallery->name }} <a href="{{ route('galleries.pictures.create', compact('gallery')) }}">+</a></h1>
+<p>Provided by {{ $gallery->author }} </p>
   <ul>
   @foreach ($gallery->pictures as $picture)
     <li>

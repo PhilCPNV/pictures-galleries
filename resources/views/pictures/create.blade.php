@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+<script src="{{ asset('js/upload-aws-s3.js') }}" defer></script>
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -8,7 +10,7 @@
                 <div class="card-header">New Picture for gallery: {{ $gallery->name }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('galleries.pictures.store', $gallery) }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('galleries.pictures.store', $gallery) }}" enctype="multipart/form-data" id="image-form" data-s3-attributes="{{ json_encode($formAttributes) }}" data-s3-inputs="{{ json_encode($formInputs) }}">
                         @csrf
 
                         <div class="form-group row">
